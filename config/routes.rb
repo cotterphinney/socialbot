@@ -1,3 +1,5 @@
 Socialbot::Application.routes.draw do
-  post 'sms' => 'receive_text#index'
+  get '/' => 'message#index'
+  get '/:action' => 'message'
+  post '/:action' => 'message'
 end
