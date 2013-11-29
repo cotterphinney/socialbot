@@ -1,3 +1,3 @@
 xml.Response do
-  xml.Sms "yup"
+  xml.Sms @received_body
 end
