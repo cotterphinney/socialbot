@@ -15,8 +15,8 @@ class MessageController < ApplicationController
       artificial: false
     })
     
-    user = User.where({phone_number: message.from_number}).first
-    User.create!({phone_number: message.from_number,cold_text: false}) if user.nil?
+    user = User.where({number: message.from_number}).first
+    User.create!({number: message.from_number,cold_text: false}) if user.nil?
     message.user = user
     
     message.save!

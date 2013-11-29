@@ -1,4 +1,4 @@
 class User < ActiveRecord::Base
-  validates_uniqueness_of :phone_number
+  validates_uniqueness_of :number
 	has_many :messages
 end
