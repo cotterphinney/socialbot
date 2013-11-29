@@ -1,3 +1,4 @@
+ruby "2.0.0"
 source 'https://rubygems.org'
 
 gem 'rails', '4.0.1'
@@ -24,4 +25,5 @@ end
 
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
