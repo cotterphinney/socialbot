@@ -30,7 +30,7 @@ class MessageController < ApplicationController
     message.save!
     
     account_sid = 'ACfc93658ca7686387e14b7ebe65b2c5ea'
-    account_token = '9831d388ae82dd36f31945db50871d28'
+    auth_token = '9831d388ae82dd36f31945db50871d28'
     
     client = Twilio::REST::Client.new account_sid, auth_token
     client.account.messages.create(
