@@ -39,20 +39,4 @@ class MessageController < ApplicationController
       :body => message.body
     )
   end
-
-  def send_response
-    to_number = params[:to_number]
-    twilio_sid = ENV['twilio_sid']
-    twilio_token = ENV['twilio_token']
-    twilio_phone_number = ENV['twilio_phone_number']
-    @twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
-
-    message_body = ""
-
-    @twilio_client.account.sms.messages.create(
-      :from => "+1#{twilio_phone_number}",
-      :to => to_number,
-      :body => message_body
-    )
-  end
 end
