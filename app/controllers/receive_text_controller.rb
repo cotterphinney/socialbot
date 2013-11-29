@@ -1,6 +1,8 @@
 class ReceiveTextController < ApplicationController
 	def index
-		text_body = params["Body"]
-		text_number = params["From"]
+		m = Message.new
+		m.number = params["From"]
+		m.body = params["Body"]
+		m.save
 	end
 end
