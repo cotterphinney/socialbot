@@ -14,9 +14,13 @@
 ActiveRecord::Schema.define(version: 20131129072855) do
 
   create_table "messages", force: true do |t|
-    t.string   "number"
+    t.string   "to_number"
+    t.string   "from_number"
+    t.boolean  "artificial"
     t.text     "body"
     t.integer  "user_id"
+    t.integer  "parent_id"
+    t.integer  "response_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -24,6 +28,8 @@ ActiveRecord::Schema.define(version: 20131129072855) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "number"
+    t.boolean  "cold_text"
+    t.datetime "last_cold_text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
