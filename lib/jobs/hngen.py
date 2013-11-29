@@ -1,6 +1,7 @@
 import urllib2
 import re
 import sys
+import fileinput
 from collections import defaultdict
 from random import random
 
@@ -28,8 +29,11 @@ archive.close()
 
 """
 
-fileinput.input().read().split("\n")
-archive.close()
+titles = []
+
+for line in fileinput.input():
+    titles.append(line)
+
 markov_map = defaultdict(lambda:defaultdict(int))
 
 lookback = 2
