@@ -16,7 +16,7 @@ class MessageController < ApplicationController
     })
     
     user = User.where({number: message.from_number}).first
-    User.create!({  number: message.from_number,cold_text: false}) if user.nil?
+    User.create!({  number: message.from_number,cold_text: true}) if user.nil?
     message.user = user
     
     previous_message = Message.where(
