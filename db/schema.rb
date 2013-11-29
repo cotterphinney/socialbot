@@ -11,19 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131129072855) do
+ActiveRecord::Schema.define(version: 20131129135448) do
 
   create_table "messages", force: true do |t|
-    t.string   "number"
+    t.string   "to_number"
+    t.string   "from_number"
+    t.boolean  "artificial"
     t.text     "body"
     t.integer  "user_id"
+    t.integer  "parent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "sid"
+    t.string   "account_sid"
   end
 
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "number"
+    t.boolean  "cold_text"
+    t.datetime "last_cold_text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

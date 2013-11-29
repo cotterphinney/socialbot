@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ReceiveTextControllerTest < ActionController::TestCase
+class MessageControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end
