@@ -17,7 +17,7 @@ class MessageController < ApplicationController
     
     user = User.where({number: message.from_number}).first
     @new_user = user.nil?
-    User.create!({  number: message.from_number,cold_text: true}) if @new_user
+    user = User.create!({  number: message.from_number,cold_text: true}) if @new_user
     message.user = user.reload
     
     previous_message = Message.where(
@@ -28,6 +28,16 @@ class MessageController < ApplicationController
     message.parent = previous_message if previous_message
     
     message.save!
+    
+    account_sid = 'ACfc93658ca7686387e14b7ebe65b2c5ea'
+    auth_token = '9831d388ae82dd36f31945db50871d28'
+    
+    client = Twilio::REST::Client.new account_sid, auth_token
+    client.account.messages.create(
+      :from => '+14086596627',
+      :to => '+13107012937',
+      :body => message.body
+    )
   end
 
   def send_response
