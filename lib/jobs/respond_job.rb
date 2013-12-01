@@ -11,7 +11,6 @@ class RespondJob
     
     temp_file = Tempfile.new("socialbot")
     temp_file.write source_messages.join("\n")
-    puts temp_file.path
     temp_file.close
     
     results = nil
@@ -24,7 +23,7 @@ class RespondJob
     
     responses = results.split("\n")
     
-    messages = Message.where(artificial: false,responded: false,from_number: '+13107012937').order("created_at asc").to_a
+    messages = Message.where(artificial: false,responded: false).order("created_at asc").to_a
     
     responses.each do |response|
       msg = messages.shift
@@ -41,5 +40,8 @@ class RespondJob
       msg.responded = true
       msg.save!
     end
+    
+    remaining = Message.where(responded: false,artificial: false).count
+    puts "Messages to still respond to: #{remaining}"
   end
 end
