@@ -28,31 +28,5 @@ class MessageController < ApplicationController
     message.parent = previous_message if previous_message
     
     message.save!
-    
-    account_sid = 'ACfc93658ca7686387e14b7ebe65b2c5ea'
-    auth_token = '9831d388ae82dd36f31945db50871d28'
-    
-    client = Twilio::REST::Client.new account_sid, auth_token
-    client.account.messages.create(
-      :from => '+14086596627',
-      :to => '+13107012937',
-      :body => message.body
-    )
-  end
-
-  def send_response
-    to_number = params[:to_number]
-    twilio_sid = ENV['twilio_sid']
-    twilio_token = ENV['twilio_token']
-    twilio_phone_number = ENV['twilio_phone_number']
-    @twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
-
-    message_body = ""
-
-    @twilio_client.account.sms.messages.create(
-      :from => "+1#{twilio_phone_number}",
-      :to => to_number,
-      :body => message_body
-    )
   end
 end
