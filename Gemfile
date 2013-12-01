@@ -19,6 +19,8 @@ gem 'twilio-ruby'
 
 gem 'resque'
 
+gem 'devise'
+
 group :development do
   gem 'sqlite3'
 end
