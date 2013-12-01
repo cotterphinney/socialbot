@@ -11,9 +11,10 @@ class RespondJob
     
     temp_file = Tempfile.new("socialbot")
     temp_file.write source_messages.join("\n")
+    puts temp_file.path
     temp_file.close
     
-    IO.popen(["python",python_script_path],temp_file.path) do |io|
+    IO.popen(["python",python_script_path,temp_file.path]) do |io|
       puts io.read
     end
     

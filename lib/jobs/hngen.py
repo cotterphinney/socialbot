@@ -44,13 +44,13 @@ for title in titles[:-1]:
     if len(title) > lookback:
         for i in xrange(len(title)+1):
             markov_map[' '.join(title[max(0,i-lookback):i])][' '.join(title[i:i+1])] += 1
-
+ 
 #Convert map to the word1 -> word2 -> probability of word2 after word1
 for word, following in markov_map.items():
     total = float(sum(following.values()))
     for key in following:
         following[key] /= total
-
+ 
 #Typical sampling from a categorical distribution
 def sample(items):
     next_word = None
@@ -60,7 +60,7 @@ def sample(items):
         if t and random() < v/t:
             next_word = k
     return next_word
-
+ 
 sentences = []
 while len(sentences) < 100:
     sentence = []
@@ -76,6 +76,6 @@ while len(sentences) < 100:
             break
     if flag:
         sentences.append(sentence)
-
+ 
 for sentence in sentences:
     print sentence
