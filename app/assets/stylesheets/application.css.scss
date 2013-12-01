@@ -18,6 +18,7 @@ body {
 
 .table > tbody > tr > td {
   border: 0;
+  padding: 14px 0;
 }
 
 #index-container {
@@ -43,10 +44,6 @@ body {
   background-color: #E5E4E9;
   color: #363636;
   margin-right: 80px;
-}
-.message.to + .message.to,
-.message.from + .message.from {
-  margin-top: -7px;
 }
 .message:before {
   border-color: #2095FE;
