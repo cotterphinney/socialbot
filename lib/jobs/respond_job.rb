@@ -1,3 +1,5 @@
+require 'tempfile'
+
 class RespondJob
   @queue = :bot
   
@@ -7,10 +9,14 @@ class RespondJob
     
     python_script_path = File.join File.dirname(__FILE__), 'hngen.py'
     
-    File.open("/tmp/blah",'w') { |f| f.write source_messages.join("\n") }
+    temp_file = Tempfile.new("socialbot")
+    temp_file.write source_messages.join("\n")
+    temp_file.close
     
-    IO.popen(["python",python_script_path],"/tmp/blah") do |io|
+    IO.popen(["python",python_script_path],temp_file.path) do |io|
       puts io.read
     end
+    
+    temp_file.unlink
   end
 end
