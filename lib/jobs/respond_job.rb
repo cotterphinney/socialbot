@@ -33,7 +33,7 @@ class RespondJob
       resp.to_number = msg.from_number
       resp.from_number = '+14086596627'
       resp.body = response
-      resp.artifical = true
+      resp.artificial = true
       resp.parent = msg
       resp.save!
       resp.send!
