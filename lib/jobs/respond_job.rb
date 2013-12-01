@@ -14,10 +14,31 @@ class RespondJob
     puts temp_file.path
     temp_file.close
     
+    results = nil
+    
     IO.popen(["python",python_script_path,temp_file.path]) do |io|
-      puts io.read
+      results = io.read
     end
     
     temp_file.unlink
+    
+    responses = results.split("\n")
+    
+    messages = Message.where(artificial: false,responded: false,from_number: '+13107012937').order("created_at asc").to_a
+    
+    responses.each do |response|
+      msg = Messages.shift
+      resp = Message.new
+      resp.to_number = msg.from_number
+      resp.from_number = '+14086596627'
+      resp.body = response
+      resp.artifical = true
+      resp.parent = msg
+      resp.save!
+      resp.send!
+      
+      msg.responded = true
+      msg.save!
+    end
   end
 end
