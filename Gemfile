@@ -21,6 +21,9 @@ gem 'resque'
 
 gem 'devise'
 
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+                              :github => 'anjlab/bootstrap-rails'
+
 group :development do
   gem 'sqlite3'
 end

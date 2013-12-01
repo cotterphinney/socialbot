@@ -1,7 +1,16 @@
-<ul>
-	<% @messages.each do |m| %>
-	<li>
-		<%= m.body %>
-	</li>
-	<% end %>
-</ul>
+<div id="index-container" class="container">
+<table class ="table">
+	<tbody>
+		<% @messages.each do |m| %>
+			<% if m.parent %>
+			<tr class="message-row">
+				<td><span class="message-span"><%= m.body %></span></td>
+			</tr>
+			<% else %>
+			<tr class="response-row">
+				<td class="response_row">asdf <%= m.body %></span></td>
+			</tr>
+			<% end %>
+		<% end %>
+	</tbody>
+</table>
