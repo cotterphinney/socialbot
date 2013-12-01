@@ -28,6 +28,7 @@ class RespondJob
     
     responses.each do |response|
       msg = messages.shift
+      break if msg.nil?
       resp = Message.new
       resp.to_number = msg.from_number
       resp.from_number = '+14086596627'
