@@ -1,15 +1,18 @@
 <div id="index-container" class="container">
-<table class ="table">
+<table class="table borderless">
 	<tbody>
 		<% @messages.each do |m| %>
 			<% if m.parent %>
-			<tr class="message-row">
-				<td><span class="message-span"><%= m.body %></span></td>
-			</tr>
+				<tr class="message-row">
+					<td class="table-td"><span class="message to"><%= m.body %></span></td>
+				</tr>
+				<tr class="response-row">
+					<td><span class="message from"><%= m.body %></span></td>
+				</tr>
 			<% else %>
-			<tr class="response-row">
-				<td class="response_row">asdf <%= m.body %></span></td>
-			</tr>
+				<tr class="message-row">
+					<td><span class="message to"><%= m.body %></span></td>
+				</tr>
 			<% end %>
 		<% end %>
 	</tbody>
