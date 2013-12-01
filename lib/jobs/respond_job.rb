@@ -27,7 +27,7 @@ class RespondJob
     messages = Message.where(artificial: false,responded: false,from_number: '+13107012937').order("created_at asc").to_a
     
     responses.each do |response|
-      msg = Messages.shift
+      msg = messages.shift
       resp = Message.new
       resp.to_number = msg.from_number
       resp.from_number = '+14086596627'
