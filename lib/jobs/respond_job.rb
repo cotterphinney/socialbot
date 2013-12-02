@@ -6,6 +6,7 @@ class RespondJob
   def self.perform
     all_messages = Message.select("distinct body").where(artificial: false)
     source_messages = all_messages.map { |m| m.body }
+    source_messages.shuffle!
     
     python_script_path = File.join File.dirname(__FILE__), 'hngen.py'
     
