@@ -22,7 +22,7 @@ body {
 }
 .table > tbody > tr > td {
   border: 0;
-  padding: 14px 0;
+  padding: 0;
 }
 
 #index-container {
@@ -33,7 +33,7 @@ body {
 }
 .message {
   border-radius: 20px 20px 20px 20px;
-  margin: 0 15px 10px;
+  margin: 0 15px 2px;
   padding: 15px 20px;
   position: relative;
 }
@@ -42,12 +42,14 @@ body {
   color: #fff;
   margin-left: 80px;
   font-weight: 200;
+  float: right;
 
 }
 .message.from {
   background-color: #E5E4E9;
   color: #363636;
   margin-right: 80px;
+  float: left;
 }
 .message:before {
   border-color: #2095FE;

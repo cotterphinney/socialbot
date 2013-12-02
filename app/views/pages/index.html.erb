@@ -9,11 +9,11 @@
 		<% @messages.each do |m| %>
 			<% if m.from_number == "4086596627" %>
 				<tr>
-					<td><span class="message from"><%= m.body %></span></td>
+					<td><div class="message from"><%= m.body %></span></td>
 				</tr>
 			<% else %>
 				<tr class="right">
-					<td><span class="message to"><%= m.body %></span></td>
+					<td><div class="message to"><%= m.body %></span></td>
 				</tr>
 			<% end %>
 		<% end %>
