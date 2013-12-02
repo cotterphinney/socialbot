@@ -1,11 +1,13 @@
 <div id="index-container" class="container">
+<div id="logo" class="row">
+	<div class="col-md-12">
+		<h1>Social Bot</h1>
+	</div>
+</div>
 <table class="table borderless">
 	<tbody>
 		<% @messages.each do |m| %>
-			<% if m.parent %>
-				<tr class="message-row">
-					<td class="table-td"><span class="message to"><%= m.body %></span></td>
-				</tr>
+			<% if m.from_number == "4086596627" %>
 				<tr class="response-row">
 					<td><span class="message from"><%= m.body %></span></td>
 				</tr>

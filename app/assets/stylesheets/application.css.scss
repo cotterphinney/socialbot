@@ -16,13 +16,17 @@ body {
 
 @import "twitter/bootstrap";
 
+#logo {
+  border-bottom: 1px solid #cecece;
+  margin-bottom: 10px;
+}
 .table > tbody > tr > td {
   border: 0;
   padding: 14px 0;
 }
 
 #index-container {
-	max-width: 700px;
+	max-width: 600px;
 }
 .message-row {
   text-align: right;
