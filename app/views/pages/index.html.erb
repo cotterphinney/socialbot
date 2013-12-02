@@ -1,0 +1,21 @@
+<div id="index-container" class="container">
+<div id="logo" class="row">
+	<div class="col-md-12">
+		<h1>Social Bot</h1>
+	</div>
+</div>
+<table class="table borderless">
+	<tbody>
+		<% @messages.each do |m| %>
+			<% if m.from_number == "4086596627" %>
+				<tr>
+					<td><span class="message from"><%= m.body %></span></td>
+				</tr>
+			<% else %>
+				<tr class="right">
+					<td><span class="message to"><%= m.body %></span></td>
+				</tr>
+			<% end %>
+		<% end %>
+	</tbody>
+</table>
