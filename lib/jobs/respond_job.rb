@@ -25,9 +25,11 @@ class RespondJob
     
     messages = Message.where(artificial: false,responded: false).order("created_at asc").to_a
     
+    responses.shuffle!
+    
     responses.each do |response|
       msg = messages.shift
-      break if msg.nil?
+      break if msg.nil? 
       resp = Message.new
       resp.to_number = msg.from_number
       resp.from_number = '+14086596627'
