@@ -1,13 +1,11 @@
-<div id="index-container" class="container">
-
 <div id="logo" class="row">
 	<div class="col-md-12">
 		<h1>Social Bot</h1>
 	</div>
 </div>
 
-<div id="table-wrapper">
-	<table class="table">
+<div id="index-container" class="container">
+	<table id="message-table" class="table">
 		<tbody>
 			<% @messages.each do |m| %>
 				<% if m.artificial %>
@@ -22,6 +20,4 @@
 			<% end %>
 		</tbody>
 	</table>
-</div>
-
 </div>
