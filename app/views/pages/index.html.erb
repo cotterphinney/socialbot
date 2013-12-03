@@ -10,11 +10,11 @@
 			<% @messages.each do |m| %>
 				<% if m.artificial %>
 					<tr>
-						<td><div class="message from"><%= m.body %></span></td>
+						<td><div class="message to"><%= m.body %></span></td>
 					</tr>
 				<% else %>
 					<tr>
-						<td><div class="message to"><%= m.body %></span></td>
+						<td><div class="message from"><%= m.body %></span></td>
 					</tr>
 				<% end %>
 			<% end %>
