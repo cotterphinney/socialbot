@@ -16,5 +16,5 @@
 //= require_tree .
 
 $(document).ready(function(){
-	$("#index-container").animate({ scrollTop: $('#index-container')[0].scrollHeight}, 1000);
+	$('#index-container').scrollTop($('#index-container')[0].scrollHeight);
 });
