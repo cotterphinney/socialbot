@@ -7,14 +7,17 @@
 <div id="index-container" class="container">
 	<table id="message-table" class="table">
 		<tbody>
-			<% @messages.each do |m| %>
-				<% if m.artificial %>
+			<% @conversation.each do |message, response| %>
+				<% if response %>
 					<tr>
-						<td><div class="message to"><%= m.body %></span></td>
+						<td><div class="message from"><%= message %></span></td>
+					</tr>
+					<tr>
+						<td><div class="message to"><%= response %></span></td>
 					</tr>
 				<% else %>
 					<tr>
-						<td><div class="message from"><%= m.body %></span></td>
+						<td><div class="message from"><%= message %></span></td>
 					</tr>
 				<% end %>
 			<% end %>
