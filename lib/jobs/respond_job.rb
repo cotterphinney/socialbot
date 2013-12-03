@@ -6,6 +6,7 @@ class RespondJob
   def self.perform
     all_messages = Message.select("distinct body").where(artificial: false)
     source_messages = all_messages.map { |m| m.body }
+    source_messages.shuffle!
     
     python_script_path = File.join File.dirname(__FILE__), 'hngen.py'
     
@@ -25,9 +26,11 @@ class RespondJob
     
     messages = Message.where(artificial: false,responded: false).order("created_at asc").to_a
     
+    responses.shuffle!
+    
     responses.each do |response|
       msg = messages.shift
-      break if msg.nil?
+      break if msg.nil? 
       resp = Message.new
       resp.to_number = msg.from_number
       resp.from_number = '+14086596627'
