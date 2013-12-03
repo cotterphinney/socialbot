@@ -25,6 +25,11 @@ body {
   padding: 0;
 }
 
+#table-wrapper {
+  height: 560px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
 #index-container {
 	max-width: 600px;
 }

@@ -1,21 +1,27 @@
 <div id="index-container" class="container">
+
 <div id="logo" class="row">
 	<div class="col-md-12">
 		<h1>Social Bot</h1>
 	</div>
 </div>
-<table class="table borderless">
-	<tbody>
-		<% @messages.each do |m| %>
-			<% if m.artificial %>
-				<tr>
-					<td><div class="message from"><%= m.body %></span></td>
-				</tr>
-			<% else %>
-				<tr>
-					<td><div class="message to"><%= m.body %></span></td>
-				</tr>
+
+<div id="table-wrapper">
+	<table class="table">
+		<tbody>
+			<% @messages.each do |m| %>
+				<% if m.artificial %>
+					<tr>
+						<td><div class="message from"><%= m.body %></span></td>
+					</tr>
+				<% else %>
+					<tr>
+						<td><div class="message to"><%= m.body %></span></td>
+					</tr>
+				<% end %>
 			<% end %>
-		<% end %>
-	</tbody>
-</table>
+		</tbody>
+	</table>
+</div>
+
+</div>

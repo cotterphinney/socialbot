@@ -14,3 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+	$("#table-wrapper").animate({ scrollTop: $('#table-wrapper')[0].scrollHeight}, 1000);
+});
